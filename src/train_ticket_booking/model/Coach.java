@@ -13,6 +13,7 @@ public class Coach {
 	private final int LOWER_SEATS = 2;
 	private final int MIDDLE_SEATS = 2;
 	private final int UPPER_SEATS = 2;
+	private final float BASE_PRICE=2000;
 
 	private int coachNumber;
 	private boolean seats[];
@@ -244,7 +245,31 @@ return nextUpperSeat;
 	
 	public float getCurrentSeatPrice() {
 		// PROVIDE LOGIC
-		return 2000;
+		// dynamic based on percentage seats filled. we need the percentage filled equivalence again.
+		int seatsPercentageFilledEquivalence = seatsFilledPercentageEquivalance();
+		if(seatsPercentageFilledEquivalence==1) {
+			return BASE_PRICE;
+		}
+		if(seatsPercentageFilledEquivalence==2) {
+			// increase price by 10%
+			float newPrice = BASE_PRICE + BASE_PRICE/10;
+			return newPrice;
+		}
+		if(seatsPercentageFilledEquivalence==3) {
+			// increase price by 12%
+			float newPrice = BASE_PRICE + (BASE_PRICE*12)/100;
+			return newPrice;
+		}
+		if(seatsPercentageFilledEquivalence==4) {
+			// increase price by 15%
+			float newPrice = BASE_PRICE + (BASE_PRICE*15)/100;
+			return newPrice;
+		}
+		else {
+			// increase price by 18%
+			float newPrice = BASE_PRICE + (BASE_PRICE*18)/100;
+			return newPrice;
+		}
 	}
 
 }
